@@ -31,6 +31,22 @@ If you have the physical setup shown above (a UR5 robotic arm, a USB camera, and
 2. `git clone https://github.com/Yan-Wang88/ur5_async_rl`
 
 ## Instructions
+### To run without SenceAct communicator
+1. install dependencies from `requirement.txt`
+2. install ROS dependencies
+3. activate local virtual environment `source env/bin/activate`
+4. in the same terminal, go to your `~/catkin_ws` and run `.franka.sh remote`
+5. go back to the project root and run `python ur5_train.py`
+
+#### Misc
+1. test your camera feed with `v4l2-ctl -d /dev/video0 --list-formats-ext`
+2. if your virtual env complains about ros dependencies, set your `PYTHONPATH` to your virtual env python. e.g. `export PYTHONPATH="$PYTHONPATH:<path-to-root>"`
+or run with this command `<path-to-root>/env/bin/python <path-to-file>/check_bound.py`
+
+---
+
+# WIP
+### To run with SenseAct communicator 
 Make sure the computer does not go to sleep or a screensaver when the task is running.
 ### To run the reaching task
 1. Open a terminal (task can’t be run in pycharm due to its restrictions).
