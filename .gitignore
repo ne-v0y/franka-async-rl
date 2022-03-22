@@ -8,7 +8,6 @@ plot_eval.py
 results/*
 *.pdf
 img_training.png
-*_test.py
 test.py
 *.png
 *.out
@@ -21,4 +20,10 @@ envs/dmc_wrapper.py
 .DS_store
 instructions.md
 
-*/env/
+# dependencies related
+franka-interface/
+SenseAct/
+env/
+*.mp4
+action.txt
+src/
