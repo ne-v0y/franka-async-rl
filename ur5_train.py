@@ -9,7 +9,7 @@ import utils
 from logger import Logger
 import torch.multiprocessing as mp
 from configs.ur5_config import config
-from envs.ur5_wrapper import FrankaWrapper
+# from envs.ur5_wrapper import FrankaWrapper
 
 import gym
 import envs.visual_ur5_reacher.reacher_env_visual
@@ -150,7 +150,8 @@ def main():
         # step in the environment
         t = time.time()
         next_obs, reward, done, _ = env.step(action)
-        print("action cycle time: ", time.time() - t)
+        nt = time.time()
+        # print("action cycle time: ", nt, nt - t, step)
         next_state = next_obs["joints"]
         next_obs = next_obs["image"]
         episode_reward += reward

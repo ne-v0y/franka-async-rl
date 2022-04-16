@@ -122,6 +122,9 @@ class FrankaPanda_agile_grasping_V0(gym.Env):
                                      dtype=np.uint8)
         # self.observation_space = GymBox(low=np.array([0]), high=np.array([0]))
 
+        self.time = time
+        self.last = self.time.time()
+
     def reset(self):
         """
         reset robot to random pose
@@ -355,7 +358,8 @@ class FrankaPanda_agile_grasping_V0(gym.Env):
         return True
 
     def step(self, action, agent_started=False, pose_vel_limit=0.3, ignore_safety=False):  # 0.08
-        print(time.time())
+        print("period ", self.time.time() - self.last)
+        self.last = self.time.time()
         self.robot_status.enable()
         # limit joint action
 
