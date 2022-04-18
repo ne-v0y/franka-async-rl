@@ -194,7 +194,7 @@ class FrankaPanda_agile_grasping_V0(gym.Env):
         self.time_steps = 0
 
         # self.camera.empty_q()
-        self.tv = time.time()
+        self.tv = self.time.time()
         # self.monitor.reset()
         return self.camera.get_state(), obs
 
@@ -358,7 +358,7 @@ class FrankaPanda_agile_grasping_V0(gym.Env):
         return True
 
     def step(self, action, agent_started=False, pose_vel_limit=0.3, ignore_safety=False):  # 0.08
-        print("period ", self.time.time() - self.last)
+        print("step start", self.time.time())
         self.last = self.time.time()
         self.robot_status.enable()
         # limit joint action
@@ -391,8 +391,9 @@ class FrankaPanda_agile_grasping_V0(gym.Env):
 
         action = self.handle_joint_angle_in_bound(action)
         self.apply_joint_vel(action)
-        time.sleep(max(0, self.ct - (time.time()-self.tv)))
-        self.tv=time.time()
+        self.time.sleep(max(0, self.ct - (self.time.time()-self.tv)))
+        # print("sleep time", self.ct - (self.time.time()-self.tv))
+        self.tv=self.time.time()
         # update robot observations
         # self.get_state()
         self.prev_action = action
@@ -416,6 +417,7 @@ class FrankaPanda_agile_grasping_V0(gym.Env):
         obs = np.concatenate((observation_robot["joints"], observation_robot["joint_vels"], action))
         env_observation = {"image": observation_robot["image"], "joints": obs}
 
+        print("step end", self.time.time())
         return env_observation, reward, done, None
     
     def handle_joint_angle_in_bound(self, action):

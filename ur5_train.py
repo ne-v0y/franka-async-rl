@@ -34,7 +34,7 @@ def parse_args():
     parser.add_argument('--replay_buffer_capacity', default=100000, type=int)
     parser.add_argument('--rad_offset', default=0.01, type=float)
     # train
-    parser.add_argument('--init_step', default=100, type=int)
+    parser.add_argument('--init_step', default=200, type=int)
     parser.add_argument('--env_step', default=100000, type=int)
     parser.add_argument('--batch_size', default=64, type=int)
     parser.add_argument('--async_mode', default=False, action='store_true')
@@ -148,10 +148,7 @@ def main():
                     action = agent.sample_action(obs, state)
 
         # step in the environment
-        t = time.time()
         next_obs, reward, done, _ = env.step(action)
-        nt = time.time()
-        # print("action cycle time: ", nt, nt - t, step)
         next_state = next_obs["joints"]
         next_obs = next_obs["image"]
         episode_reward += reward

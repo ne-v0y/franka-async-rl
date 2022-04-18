@@ -196,10 +196,8 @@ class ActorModel(nn.Module):
 
     def forward(
         self, images, proprioceptions, random_rad=True, compute_pi=True, compute_log_pi=True, detach_encoder=False):
-        print("forward", time.time())
         latents = self.encoder(images, proprioceptions, random_rad, detach=detach_encoder)
         mu, log_std = self.trunk(latents).chunk(2, dim=-1)
-        # print("forward II", time.time())
         # constrain log_std inside [log_std_min, log_std_max]
         log_std = torch.tanh(log_std)
         log_std = LOG_STD_MIN + 0.5 * (
@@ -208,8 +206,6 @@ class ActorModel(nn.Module):
 
         self.outputs['mu'] = mu
         self.outputs['std'] = log_std.exp()
-
-        # print("forward III", time.time())
 
         if compute_pi:
             std = log_std.exp()
@@ -222,8 +218,6 @@ class ActorModel(nn.Module):
             log_pi = gaussian_logprob(noise, log_std)
         else:
             log_pi = None
-        
-        # print("forward IV", time.time())
 
         mu, pi, log_pi = squash(mu, pi, log_pi)
         return mu, pi, log_pi, log_std
