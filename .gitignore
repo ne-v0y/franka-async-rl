@@ -24,6 +24,7 @@ instructions.md
 franka-interface/
 SenseAct/
 env/
+venv/
 *.mp4
 action.txt
 src/
