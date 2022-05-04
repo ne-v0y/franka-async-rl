@@ -3,7 +3,7 @@
 This is the implementation for asynchronous reinforcement learning for Franka robotic arm. This repo consists of two parts, the vision-based Franka environment, which is based on the [OpenAI Gym](https://gym.openai.com/) framework, [Franka ROS Interface](https://projects.saifsidhik.page/franka_ros_interface/DOC.html), and an asynchronous learning architecture for Soft-Actor-Critic. (Our implementation of SAC is partly borrowed from [here](https://sites.google.com/view/sac-ae/home))
 
 ## Trained results:
-| ![Franka-Reacher-2](figs/initial.GIF) <br> Initial policy, frame dropped | ![UR-Reacher-6](figs/400epi.GIF) <br /> After about 400 episodes, frame dropped |
+| ![Franka-Reacher-2](figs/initial.gif) <br> Initial policy, frame dropped | ![UR-Reacher-6](figs/400epi.gif) <br /> After about 400 episodes, frame dropped |
 | --- | --- |
 
 [Recording of the initial policy](https://drive.google.com/file/d/18pT0DcMYoXoaTt9tQhxNGVmc43GN6xQB/view?usp=sharing)
