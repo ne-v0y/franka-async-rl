@@ -6,7 +6,7 @@ This is the implementation for asynchronous reinforcement learning for Franka ro
 | ![Franka-Reacher-2](figs/initial.gif) <br> Initial policy, frame dropped | ![UR-Reacher-6](figs/400epi.gif) <br /> After about 400 episodes, frame dropped |
 | --- | --- |
 
-[Recording of the initial policy](https://drive.google.com/file/d/18pT0DcMYoXoaTt9tQhxNGVmc43GN6xQB/view?usp=sharing)
+[Recording of the initial policy](https://drive.google.com/file/d/18pT0DcMYoXoaTt9tQhxNGVmc43GN6xQB/view?usp=sharing)  
 [Recording of the learned behaviour at 400 episodes](https://drive.google.com/file/d/1uyR8kreh1iPXroCcL6Z2FWB_0MBeBPGL/view?usp=sharing)
 
 ## Required Packages
