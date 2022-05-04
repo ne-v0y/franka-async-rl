@@ -5,14 +5,8 @@ brotlipy==0.7.0
 camera-calibration==1.16.0
 camera-calibration-parsers==1.12.0
 catkin==0.8.10
-certifi==2021.5.30
-cffi @ file:///tmp/build/80754af9/cffi_1625814692085/work
-chardet @ file:///tmp/build/80754af9/chardet_1607706775000/work
-conda==4.10.3
-conda-package-handling @ file:///tmp/build/80754af9/conda-package-handling_1618262147379/work
 controller-manager==0.19.5
 controller-manager-msgs==0.19.5
-cryptography @ file:///tmp/build/80754af9/cryptography_1616767007030/work
 cv-bridge==1.16.0
 diagnostic-analysis==1.10.4
 diagnostic-common-diagnostics==1.10.4
@@ -27,7 +21,6 @@ genlisp==0.4.18
 genmsg==0.5.16
 gennodejs==2.0.2
 genpy==0.6.15
-idna @ file:///home/linux1/recipes/ci/idna_1610986105248/work
 image-geometry==1.16.0
 interactive-markers==1.12.0
 joint-state-publisher==1.15.0
