@@ -1,5 +1,5 @@
 import gym
-import envs.visual_ur5_reacher.reacher_env_visual
+import envs.visual_franka_reacher.reacher_env_visual
 import time
 
 if __name__ == "__main__":
