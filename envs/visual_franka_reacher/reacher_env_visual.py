@@ -343,7 +343,6 @@ class FrankaPanda_agile_grasping_V0(gym.Env):
         return True
 
     def step(self, action, agent_started=False, pose_vel_limit=0.3, ignore_safety=False):  # 0.08
-        self.tv=time.time()
         self.robot_status.enable()
         
         # limit joint action
@@ -397,6 +396,8 @@ class FrankaPanda_agile_grasping_V0(gym.Env):
         env_observation = {"image": observation_robot["image"], "joints": obs}
 
         time.sleep(max(0, self.ct - (time.time()-self.tv)))
+
+        self.tv=time.time()
 
         return env_observation, reward, done, None
     

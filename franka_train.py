@@ -9,7 +9,7 @@ import utils
 from logger import Logger
 import torch.multiprocessing as mp
 from configs.franka_config import config
-from envs.franka_wrapper import FrankaWrapper
+# from envs.franka_wrapper import FrankaWrapper
 
 import gym
 import envs.visual_franka_reacher.reacher_env_visual
@@ -145,12 +145,14 @@ def main():
         else:
             with utils.eval_mode(agent):
                 if step % args.agent_action_repeat == 0:
+                    # observation = env.get_state()
+                    # obs = observation["image"]
+                    # state = observation["joints"]
+                    # print("state now", observation["joints"])
                     action = agent.sample_action(obs, state)
 
         # step in the environment
-        t = time.time()
         next_obs, reward, done, _ = env.step(action)
-        print("action cycle time: ", time.time() - t)
         next_state = next_obs["joints"]
         next_obs = next_obs["image"]
         episode_reward += reward
