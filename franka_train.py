@@ -14,6 +14,7 @@ from configs.franka_config import config
 import gym
 import envs.visual_franka_reacher.reacher_env_visual
 
+
 def parse_args():
     parser = argparse.ArgumentParser()
     # environment
@@ -34,7 +35,7 @@ def parse_args():
     parser.add_argument('--replay_buffer_capacity', default=100000, type=int)
     parser.add_argument('--rad_offset', default=0.01, type=float)
     # train
-    parser.add_argument('--init_step', default=100, type=int)
+    parser.add_argument('--init_step', default=1000, type=int)
     parser.add_argument('--env_step', default=100000, type=int)
     parser.add_argument('--batch_size', default=64, type=int)
     parser.add_argument('--async_mode', default=False, action='store_true')

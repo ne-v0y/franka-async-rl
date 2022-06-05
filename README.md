@@ -12,7 +12,7 @@ This is the implementation for asynchronous reinforcement learning for Franka ro
 ## Required Packages
 Use `pip3` to install the Pytorch packages and not `conda`.
 
-* Python 3.6.9
+* Python 3.7+
 * Numpy 1.19.5
 * Pytorch 1.9.0+cuda 11.1
 * Pytorch vision 0.10.0
@@ -31,23 +31,23 @@ Use `pip3` to install the Pytorch packages and not `conda`.
 ## Instructions
 ### To run without SenceAct communicator
 1. Initialize a Python virtual enviroment `python3 -m venv`
-1. install dependencies from `requirement.txt`
-2. install ROS dependencies
-3. activate local virtual environment `source venv/bin/activate`
-4. in the same terminal, go to your `~/catkin_ws` and run `.franka.sh remote`
-5. go back to the project root and run `python franka_train.py`
+1. Install dependencies from `requirement.txt`
+2. Install ROS dependencies
+3. Activate local virtual environment `source venv/bin/activate`
+4. In the same terminal, go to your `~/catkin_ws` and run `.franka.sh remote`
+5. Go back to the project root and run `python franka_train.py`. Arguments can be found defined in this file.
 
 #### Misc
-1. test your camera feed with `v4l2-ctl -d /dev/video0 --list-formats-ext`
-2. if your virtual env complains about ros dependencies, set your `PYTHONPATH` to your virtual env python. e.g. `export PYTHONPATH="$PYTHONPATH:<path-to-root>"`
-or run with this command `<path-to-root>/env/bin/python <path-to-file>/check_bound.py`
+1. Test your camera feed with `v4l2-ctl -d /dev/video0 --list-formats-ext`
+2. If your virtual env complains about ROS dependencies, set your `PYTHONPATH` to your virtual env python. e.g. `export PYTHONPATH="$PYTHONPATH:<path-to-root>"`
+3. If you have issues with the environment, check with `<root>/debug_scripts/collect_env.py`
 
 ---
 
 ### To run the reaching task
 1. Open a terminal (task can’t be run in pycharm due to its restrictions).
-2. Cd to the `ur5_async_rl` directory.
-3. Type `python3 ur5_train.py --target_type reaching --camera_id 0 (or 1, based on your actual camera id) --async_mode (for parallel mode, or ignore it for serial mode)`
+2. Cd to the `franka_async_rl` directory.
+3. Type `python3 franka_train.py --target_type reaching --camera_id 0 (or 1, based on your actual camera id) --async_mode (for parallel mode, or ignore it for serial mode)`
 ### To run the tracking task
 - TBD
 
@@ -73,3 +73,10 @@ CLOSS - average loss of critic
 NUM - number of gradient updates performed so far
 ```
 ## Troubleshoot
+1. For Pyton3.7+ you will run into this issue:
+    ```
+    multiprocessing: TypeError: cannot pickle 'weakref' object
+    ```
+    Please check out [this thread](https://stackoverflow.com/questions/71945399/python-3-8-multiprocessing-typeerror-cannot-pickle-weakref-object) and follow fix suggested [here](https://github.com/python/cpython/pull/31701/files).
+
+2. When using the `fmq` library, you will find it not compatible with python3. Please follow [this fix](https://github.com/WeiTang114/FMQ/pull/1).
