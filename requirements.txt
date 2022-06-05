@@ -35,7 +35,7 @@ moveit-commander==1.1.6
 moveit-core==1.1.6
 moveit-ros-planning-interface==1.1.6
 moveit-ros-visualization==1.1.6
-numpy==1.16.5
+numpy==1.21.0
 numpy-quaternion==2022.4.2
 opencv-python==4.5.5.64
 pyassimp==4.1.4
