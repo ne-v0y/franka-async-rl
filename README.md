@@ -31,7 +31,7 @@ Use `pip3` to install the Pytorch packages and not `conda`.
 ## Instructions
 ### To run without SenceAct communicator
 1. Initialize a Python virtual enviroment `python3 -m venv`
-1. Install dependencies from `requirement.txt`
+1. Install dependencies from `pip isntall -r requirement.txt`
 2. Install ROS dependencies
 3. Activate local virtual environment `source venv/bin/activate`
 4. In the same terminal, go to your `~/catkin_ws` and run `.franka.sh remote`
