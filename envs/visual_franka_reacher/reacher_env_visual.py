@@ -398,6 +398,7 @@ class FrankaPanda_agile_grasping_V0(gym.Env):
         time.sleep(max(0, self.ct - (time.time()-self.tv)))
 
         self.tv=time.time()
+        # print("cycte begin", self.tv)
 
         return env_observation, reward, done, None
     

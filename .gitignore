@@ -27,3 +27,4 @@ venv/
 *.mp4
 action.txt
 src/
+cuda*
