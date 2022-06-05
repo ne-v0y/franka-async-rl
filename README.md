@@ -35,21 +35,12 @@ Use `pip3` to install the Pytorch packages and not `conda`.
 2. Install ROS dependencies
 3. Activate local virtual environment `source venv/bin/activate`
 4. In the same terminal, go to your `~/catkin_ws` and run `.franka.sh remote`
-5. Go back to the project root and run `python franka_train.py`. Arguments can be found defined in this file.
+5. Go back to the project root and run `python franka_train.py --async_mode (for parallel mode, or ignore it for serial mode)`. Arguments can be found defined in this file.
 
 #### Misc
 1. Test your camera feed with `v4l2-ctl -d /dev/video0 --list-formats-ext`
 2. If your virtual env complains about ROS dependencies, set your `PYTHONPATH` to your virtual env python. e.g. `export PYTHONPATH="$PYTHONPATH:<path-to-root>"`
 3. If you have issues with the environment, check with `<root>/debug_scripts/collect_env.py`
-
----
-
-### To run the reaching task
-1. Open a terminal (task can’t be run in pycharm due to its restrictions).
-2. Cd to the `franka_async_rl` directory.
-3. Type `python3 franka_train.py --target_type reaching --camera_id 0 (or 1, based on your actual camera id) --async_mode (for parallel mode, or ignore it for serial mode)`
-### To run the tracking task
-- TBD
 
 ### To run with SenseAct communicator 
 - TBD
@@ -73,7 +64,7 @@ CLOSS - average loss of critic
 NUM - number of gradient updates performed so far
 ```
 ## Troubleshoot
-1. For Pyton3.7+ you will run into this issue:
+1. For Python3.7+ you will run into this issue:
     ```
     multiprocessing: TypeError: cannot pickle 'weakref' object
     ```
